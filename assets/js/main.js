@@ -128,11 +128,20 @@ posts.forEach(post => {
 });
 
 
-function addLike(id) {
+/* function addLike(id) {
     id = Number(id.getAttribute('data-postid'))
     console.log(posts[id].likes++);
     posts[id].likes++;
     document.getElementById('like-counter-' + id).innerHTML = posts[id].likes;
+
+} */
+
+function addLike(id) {
+    id = Number(id.getAttribute('data-postid') - 1)
+    console.log(id);
+    //console.log(posts[id].likes++);
+    posts[id].likes++ - 1;
+    document.getElementById('like-counter-' + (id + 1)).innerHTML = posts[id].likes;
 
 }
 
