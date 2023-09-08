@@ -107,24 +107,34 @@ function printPost(index) {
                     <div class="post__footer">
                         <div class="likes js-likes">
                             <div class="likes__cta">
-                                <a class="like-button  js-like-button" href="#" data-postid="1">
+                                <a class="like-button" onclick="addLike(this)" js-like-button" href="#" data-postid="${index.id}">
                                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                                     <span class="like-button__label">Mi Piace</span>
                                 </a>
                             </div>
                             <div class="likes__counter">
-                                Piace a <b id="like-counter-1" class="js-likes-counter">${index.likes}</b> persone
+                                Piace a <b id="like-counter-${index.id}" class="js-likes-counter">${index.likes}</b> persone
                             </div>
                         </div>
                     </div>
                     </div>`
     document.getElementById('container').insertAdjacentHTML('afterbegin', markup)
+
+    // document.getElementById('like-counter-1').addEventListener('click', addLike(this.getAttribute('data-postid')))
 }
 
 posts.forEach(post => {
     return printPost(post);
 });
 
+
+function addLike(id) {
+    id = Number(id.getAttribute('data-postid'))
+    console.log(posts[id].likes++);
+    posts[id].likes++;
+    document.getElementById('like-counter-' + id).innerHTML = posts[id].likes;
+
+}
 
 
 
