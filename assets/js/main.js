@@ -107,7 +107,7 @@ function printPost(index) {
                     <div class="post__footer">
                         <div class="likes js-likes">
                             <div class="likes__cta">
-                                <a class="like-button" onclick="addLike(this)" js-like-button" href="#" data-postid="${index.id}">
+                                <a class="like-button" onclick="addLike(this)" js-like-button" href="javascript:;" data-postid="${index.id}">
                                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                                     <span class="like-button__label">Mi Piace</span>
                                 </a>
@@ -118,7 +118,7 @@ function printPost(index) {
                         </div>
                     </div>
                     </div>`
-    document.getElementById('container').insertAdjacentHTML('afterbegin', markup)
+    document.getElementById('container').insertAdjacentHTML('beforeend', markup)
 
     // document.getElementById('like-counter-1').addEventListener('click', addLike(this.getAttribute('data-postid')))
 }
